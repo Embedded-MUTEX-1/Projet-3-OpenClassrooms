@@ -11,7 +11,7 @@ import java.util.Date;
 public class Location {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    private int Long;
 
     private String name;
 

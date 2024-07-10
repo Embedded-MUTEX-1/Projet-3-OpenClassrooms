@@ -6,6 +6,6 @@ import java.util.List;
 
 public interface LocationService {
     public List<Location> getAllLocation();
-    public Location getLocation(int locationId);
+    public Location getLocation(Long locationId);
     public void addLocation(Location location);
 }
