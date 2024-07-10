@@ -1,6 +1,8 @@
 package fr.lenny.backend.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import java.util.Date;
@@ -13,14 +15,18 @@ public class Location {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int Long;
 
+    @NotBlank(message = "Name may not be empty")
     private String name;
 
-    private int surface;
+    @NotNull
+    private Integer surface;
 
-    private float price;
+    @NotNull
+    private Float price;
 
     private String picture;
 
+    @NotBlank(message = "Description may not be empty")
     private String description;
 
     @ManyToOne(fetch = FetchType.LAZY)

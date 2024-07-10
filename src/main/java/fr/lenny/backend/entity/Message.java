@@ -1,6 +1,7 @@
 package fr.lenny.backend.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
@@ -12,6 +13,7 @@ public class Message {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int Long;
 
+    @NotBlank(message = "Message may not be empty")
     private String message;
 
     @ManyToOne(fetch = FetchType.LAZY)

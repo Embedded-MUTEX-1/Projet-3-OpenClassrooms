@@ -1,6 +1,9 @@
 package fr.lenny.backend.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
@@ -15,10 +18,14 @@ public class User {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int Long;
 
+    @NotBlank(message = "Name may not be empty")
     private String name;
 
+    @Email
     private String email;
 
+    @NotBlank(message = "Password may not be empty")
+    @Size(min = 5, message = "Password too short")
     private String password;
 
     private Date createdAt;
