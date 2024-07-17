@@ -5,4 +5,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 
 @ResponseStatus(value= HttpStatus.NOT_FOUND, reason="No such location")
 public class LocationNotFoundException extends RuntimeException {
+    public LocationNotFoundException() {
+        super("No such location");
+    }
 }

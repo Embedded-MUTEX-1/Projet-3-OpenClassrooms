@@ -1,19 +1,20 @@
 package fr.lenny.backend.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
-import lombok.AllArgsConstructor;
-import lombok.Data;
+import jakarta.validation.constraints.Size;
+import lombok.*;
 
 @Entity
 @Data
 @AllArgsConstructor
+@NoArgsConstructor
 public class Message {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private int Long;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-    @NotBlank(message = "Message may not be empty")
     private String message;
 
     @ManyToOne(fetch = FetchType.LAZY)

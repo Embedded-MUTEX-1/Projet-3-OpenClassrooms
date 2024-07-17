@@ -1,8 +1,8 @@
 package fr.lenny.backend.service;
 
-import fr.lenny.backend.entity.Message;
+import fr.lenny.backend.dto.MessageDTO;
 
 public interface MessageService {
-    public void addMessage(Message message);
-    public Message getMessage(Long messageId);
+    public void addMessage(MessageDTO message);
+    public MessageDTO getMessage(Long messageId);
 }

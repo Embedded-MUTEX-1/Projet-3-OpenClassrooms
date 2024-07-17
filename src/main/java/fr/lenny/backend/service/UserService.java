@@ -1,7 +1,7 @@
 package fr.lenny.backend.service;
 
-import fr.lenny.backend.entity.User;
+import fr.lenny.backend.dto.UserDTO;
 
 public interface UserService {
-    public User getUser(Long userId);
+    public UserDTO getUser(Long userId);
 }

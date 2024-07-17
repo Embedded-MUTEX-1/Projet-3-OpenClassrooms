@@ -1,10 +1,10 @@
 package fr.lenny.backend.service;
 
 
-import fr.lenny.backend.entity.User;
+import fr.lenny.backend.dto.UserDTO;
 
 public interface LoginService {
     public String authUser(String email, String password);
-    public void registerUser(User user);
-    public User getAuthUser(String email);
+    public void registerUser(UserDTO user);
+    public UserDTO getAuthUser(String email);
 }
