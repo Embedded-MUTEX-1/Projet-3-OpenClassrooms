@@ -1,12 +1,15 @@
 package fr.lenny.backend.controller;
 
+import fr.lenny.backend.dto.HttpMessageDTO;
 import fr.lenny.backend.dto.LocationDTO;
+import fr.lenny.backend.dto.LocationUploadDTO;
+import fr.lenny.backend.dto.LocationsDTO;
 import fr.lenny.backend.service.LocationService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.IOException;
 import java.util.List;
 
 
@@ -26,19 +29,20 @@ public class LocationController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<String> updateLocation(@PathVariable Long id, @RequestBody @Valid LocationDTO location) {
+    public HttpMessageDTO updateLocation(@PathVariable Long id, @RequestBody @Valid LocationDTO location) {
         service.updateLocation(id, location);
-        return ResponseEntity.ok("Rental updated !");
+        return new HttpMessageDTO("Rental updated !");
     }
 
-    @PostMapping("")
-    public ResponseEntity<String> createLocation(@RequestBody @Valid LocationDTO location) {
+    @PostMapping(path = "")
+    public HttpMessageDTO createLocation(@ModelAttribute @Valid LocationUploadDTO location) throws IOException {
+        System.out.println(location.getPicture());
         service.addLocation(location);
-        return ResponseEntity.ok("Rental created !");
+        return new HttpMessageDTO("Rental created !");
     }
 
     @GetMapping("")
-    public List<LocationDTO> getLocations() {
+    public LocationsDTO getLocations() {
         return service.getAllLocation();
     }
 }

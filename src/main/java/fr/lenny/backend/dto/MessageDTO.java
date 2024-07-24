@@ -15,4 +15,8 @@ public class MessageDTO {
     @NotBlank(message = "Message may not be empty")
     @Size(min = 5, message = "Message too short")
     private String message;
+
+    private long rental_id;
+
+    private long user_id;
 }

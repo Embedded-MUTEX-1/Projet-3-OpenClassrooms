@@ -12,12 +12,16 @@ import java.util.Date;
 @Repository
 public interface LocationRepo extends JpaRepository<Location, Long> {
     @Modifying
-    @Query("update Location l set l.name = :name, l.surface = :surface, l.price = :price, l.updatedAt = :updatedAt where l.id = :id")
+    @Query("update Location l set l.name = :name, l.surface = :surface, l.price = :price, l.updated_at = :updated_at where l.id = :id")
     void updateLocation(
             @Param(value = "id") long id,
             @Param(value = "name") String name,
             @Param(value = "surface") String surface,
             @Param(value = "price") Float price,
-            @Param(value = "updatedAt") Date updatedAt
+            @Param(value = "updated_at") Date updated_at
             );
+
+    @Modifying
+    @Query("update Location l set l.picture = :url where l.id = :id")
+    void updateImageLocation(@Param(value = "id") long id, @Param(value = "url") String url);
 }

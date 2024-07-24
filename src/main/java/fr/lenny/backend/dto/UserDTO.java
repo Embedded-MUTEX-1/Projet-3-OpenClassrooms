@@ -24,7 +24,7 @@ public class UserDTO {
     @Size(min = 5, message = "Password too short")
     private String password;
 
-    private Date createdAt;
+    private Date created_at;
 
-    private Date updatedAt;
+    private Date updated_at;
 }

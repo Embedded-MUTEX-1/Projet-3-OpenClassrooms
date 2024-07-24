@@ -1,20 +1,19 @@
 package fr.lenny.backend.dto;
 
-import com.fasterxml.jackson.databind.annotation.JsonAppend;
-import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.Date;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class LocationDTO {
+public class LocationUploadDTO {
     private Long id;
 
     @NotBlank(message = "Name may not be empty")
@@ -27,7 +26,7 @@ public class LocationDTO {
     @NotNull
     private Float price;
 
-    private String picture;
+    private MultipartFile picture;
 
     @NotBlank(message = "Description may not be empty")
     @Size(min = 10, message = "Description too short")

@@ -1,10 +1,12 @@
 package fr.lenny.backend.controller;
 
+import fr.lenny.backend.dto.HttpMessageDTO;
 import fr.lenny.backend.dto.MessageDTO;
 import fr.lenny.backend.entity.Message;
 import fr.lenny.backend.service.MessageService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpMessage;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -25,8 +27,8 @@ public class MessageController {
     }
 
     @PostMapping("")
-    public ResponseEntity<String> createMessage(@RequestBody @Valid MessageDTO message) {
+    public HttpMessageDTO createMessage(@RequestBody @Valid MessageDTO message) {
         service.addMessage(message);
-        return ResponseEntity.ok("Message send with success");
+        return new HttpMessageDTO("Message send with success");
     }
 }

@@ -31,7 +31,7 @@ public class Location {
     @JoinColumn(name = "owner_id")
     private User owner;
 
-    private Date createdAt;
+    private Date created_at;
 
-    private Date updatedAt;
+    private Date updated_at;
 }

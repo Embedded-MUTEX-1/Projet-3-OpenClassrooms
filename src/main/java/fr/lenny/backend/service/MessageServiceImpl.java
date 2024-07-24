@@ -21,7 +21,7 @@ public class MessageServiceImpl implements MessageService{
 
     @Override
     public void addMessage(MessageDTO message) {
-        repo.save(modelMapper.map(message, Message.class));
+        repo.insertWithIds(message.getMessage(), message.getRental_id(), message.getUser_id());
     }
 
     @Override

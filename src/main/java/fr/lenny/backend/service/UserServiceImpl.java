@@ -45,8 +45,8 @@ public class UserServiceImpl implements UserService{
 
         User user = modelMapper.map(registerDTO, User.class);
         user.setPassword(BCrypt.hashpw(registerDTO.getPassword(), BCrypt.gensalt(12)));
-        user.setCreatedAt(new Date());
-        user.setUpdatedAt(new Date());
+        user.setCreated_at(new Date());
+        user.setUpdated_at(new Date());
         repo.save(user);
     }
 }

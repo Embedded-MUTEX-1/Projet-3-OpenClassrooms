@@ -27,9 +27,9 @@ public class User implements UserDetails {
 
     private String password;
 
-    private Date createdAt;
+    private Date created_at;
 
-    private Date updatedAt;
+    private Date updated_at;
 
     @OneToMany(fetch = FetchType.LAZY)
     private List<Location> locations;
