@@ -31,11 +31,13 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public UserDTO getUserByEmai(String email) {
+    public UserDTO getUserByEmail(String email) {
         User user = repo.findByEmail(email);
         if(user == null)
             throw new UserNotFoundException();
-        return modelMapper.map(user, UserDTO.class);
+        UserDTO userDTO = modelMapper.map(user, UserDTO.class);
+        userDTO.setId(user.getId());
+        return userDTO;
     }
 
     @Override

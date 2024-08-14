@@ -7,9 +7,12 @@ import fr.lenny.backend.dto.LocationsDTO;
 import fr.lenny.backend.service.LocationService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
+import java.security.Principal;
 import java.util.List;
 
 
@@ -29,15 +32,15 @@ public class LocationController {
     }
 
     @PutMapping("/{id}")
-    public HttpMessageDTO updateLocation(@PathVariable Long id, @RequestBody @Valid LocationDTO location) {
+    public HttpMessageDTO updateLocation(@PathVariable Long id, @ModelAttribute @Valid LocationDTO location) {
         service.updateLocation(id, location);
         return new HttpMessageDTO("Rental updated !");
     }
 
     @PostMapping(path = "")
-    public HttpMessageDTO createLocation(@ModelAttribute @Valid LocationUploadDTO location) throws IOException {
+    public HttpMessageDTO createLocation(@ModelAttribute @Valid LocationUploadDTO location, Principal principal) throws IOException {
         System.out.println(location.getPicture());
-        service.addLocation(location);
+        service.addLocation(location, principal);
         return new HttpMessageDTO("Rental created !");
     }
 

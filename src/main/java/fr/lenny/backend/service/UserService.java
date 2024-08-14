@@ -5,6 +5,6 @@ import fr.lenny.backend.dto.UserDTO;
 
 public interface UserService {
     public UserDTO getUser(Long userId);
-    public UserDTO getUserByEmai(String email);
+    public UserDTO getUserByEmail(String email);
     public void createUser(RegisterDTO registerDTO);
 }

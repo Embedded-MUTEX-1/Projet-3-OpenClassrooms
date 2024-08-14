@@ -42,6 +42,6 @@ public class AuthController {
 
     @GetMapping("/me")
     public UserDTO getMe(Authentication authentication) {
-        return userService.getUserByEmai(authentication.getName());
+        return userService.getUserByEmail(authentication.getName());
     }
 }

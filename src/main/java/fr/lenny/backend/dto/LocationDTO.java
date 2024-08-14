@@ -22,7 +22,7 @@ public class LocationDTO {
     private String name;
 
     @NotNull
-    private Integer surface;
+    private Float surface;
 
     @NotNull
     private Float price;
@@ -32,6 +32,8 @@ public class LocationDTO {
     @NotBlank(message = "Description may not be empty")
     @Size(min = 10, message = "Description too short")
     private String description;
+
+    private long owner_id;
 
     private Date created_at;
 
