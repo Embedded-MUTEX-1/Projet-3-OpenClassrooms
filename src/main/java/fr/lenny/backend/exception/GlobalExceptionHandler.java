@@ -74,7 +74,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler({BadCredentialsException.class})
     public ResponseEntity<Object> handleRuntimeException(BadCredentialsException exception) {
         return ResponseEntity
-                .status(HttpStatus.BAD_REQUEST)
+                .status(HttpStatus.UNAUTHORIZED)
                 .body("Bad credential");
     }
 
