@@ -10,3 +10,6 @@
 - Créez un fichier .env à l'aide du fichier .env.example en renseignant les informations de la BDD. Pour le champ JWT_KEY, vous pouvez générer une clé 256 via un générateur en ligne.
 - Sur votre IDE configurez le projet à fin de le rendre exécutable (certaines IDEs le font automatiquement). 
 - Enjoy!
+## Urls
+- Serveur : http://localhost:8080
+- Swagger : http://localhost:8080/swagger-ui/index.html#/
